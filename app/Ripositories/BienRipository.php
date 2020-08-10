@@ -11,7 +11,7 @@ class BienRipository
     public function addbien($data){
 
         $data->validate([
-            'typebien' => ['required', 'max:255'],
+            'typebien' => ['required'],
             'name' => ['required', 'string', 'max:255'],
             'addresse' => ['required', 'string'],
 
@@ -72,23 +72,41 @@ class BienRipository
 
     public function updateBien($data, $id){
 
-        $imageName = time().'.'.$data->file->extension();
-        $data->file->move(public_path('profil'), $imageName);
+        if($data->hasFile('file')) {
 
-        $bienupdate = Bien::find($id);
-        $bienupdate->update([
-            'users_id' => Auth::id(),
-            'type_bien_id' => $data['typebien'],
-            'name' => $data['name'],
-            'pays' => $data['pays'],
-            'ville' => $data['ville'],
-            'region' => $data['region'],
-            'surface' => $data['surface'],
-            'addresse' => $data['addresse'],
-            'description' => $data['description'],
-            'photo' => $imageName,
+            $imageName = time() . '.' . $data->file->extension();
+            $data->file->move(public_path('profil'), $imageName);
 
-        ]);
+            $bienupdate = Bien::find($id);
+            $bienupdate->update([
+                'users_id' => Auth::id(),
+                'type_bien_id' => $data['typebien'],
+                'name' => $data['name'],
+                'pays' => $data['pays'],
+                'ville' => $data['ville'],
+                'region' => $data['region'],
+                'surface' => $data['surface'],
+                'addresse' => $data['addresse'],
+                'description' => $data['description'],
+                'photo' => $imageName,
+
+            ]);
+
+        }else{
+            $bienupdate = Bien::find($id);
+            $bienupdate->update([
+                'users_id' => Auth::id(),
+                'type_bien_id' => $data['typebien'],
+                'name' => $data['name'],
+                'pays' => $data['pays'],
+                'ville' => $data['ville'],
+                'region' => $data['region'],
+                'surface' => $data['surface'],
+                'addresse' => $data['addresse'],
+                'description' => $data['description'],
+
+            ]);
+        }
 
         $pieceUpdate = Piece::find($id);
         $pieceUpdate->update([

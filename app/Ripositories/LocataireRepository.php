@@ -15,8 +15,7 @@ class LocataireRepository
            $data->validate([
                'email' => ['required', 'string', 'email', 'max:255'],
                'nom' => ['required', 'string', 'max:255'],
-               'cni' => ['required' , 'max:255', 'min:6'],
-
+               'cni' => ['required' , 'max:255', 'min:4'],
            ]);
 
         if ( $data->hasFile('file')) {
@@ -58,9 +57,9 @@ class LocataireRepository
     public function updateTenant( $data, $id){
 
         $data->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:locataire'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
-            'cni' => ['required', 'int' , 'max:255', 'min:6'],
+            'cni' => ['required', 'int' , 'max:255', 'min:4'],
 
         ]);
 

@@ -156,6 +156,7 @@ class LocationController extends Controller
     {
         $location = Location::with('etats')->find($id);
         $location->etats()->delete();
+        $location->paiments()->delete();
         $location->delete();
         Flashy::message(' location supprimé avec succeé!');
         return redirect()->route('house.index');

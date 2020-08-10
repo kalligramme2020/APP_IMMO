@@ -48,12 +48,7 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'location' => ['required', 'string', 'max:255'],
-            'locataire' => ['required', 'string', 'max:255'],
-            'addresse' => ['required', 'string'],
 
-        ]);
 
         $Addinvoice = Paiement::create([
            'bailleur' => Auth::id(),
@@ -82,7 +77,8 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-         $showInvice = Paiement::find($id);
+         $showInvice = Paiement::with('location')->find($id);
+
          return view('Payment.showInvoice',  compact('showInvice'));
     }
 

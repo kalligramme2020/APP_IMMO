@@ -5,7 +5,7 @@ use App\Models\Pays;
 use App\Models\Type_bien;
 use Illuminate\Http\Request;
 
-class PaysController extends Controller
+class  gitPaysController extends Controller
 {
 
 
