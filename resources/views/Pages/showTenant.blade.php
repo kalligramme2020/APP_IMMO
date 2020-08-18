@@ -61,8 +61,6 @@
                              <button type="submit" class="btn btn-danger">suprimer</button>
                          </form>
                      </div>
-{{--                     <div class="card-body ">--}}
-{{--                     </div>--}}
 
                  </div>
              </div>
