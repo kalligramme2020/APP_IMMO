@@ -76,7 +76,7 @@
 
 
                                 <!-- Sign up button -->
-                                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">{{ __('Login') }}</button>
+                                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">{{ __('Connexion') }}</button>
 
                                 <!-- Social register -->
                                 <p>or sign up with:</p>
