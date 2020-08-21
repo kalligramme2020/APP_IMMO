@@ -36,7 +36,7 @@ class LocataireController extends Controller
     public function index()
     {
         $tenants = Locataire::all()->where('users_id' , '==' , Auth::id());
-        return view('pages.locataire' , compact('tenants'));
+        return view('Pages.locataire' , compact('tenants'));
     }
 
     /**
