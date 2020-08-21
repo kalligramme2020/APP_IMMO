@@ -12,11 +12,7 @@ class LocataireRepository
 
     public function addTenant( $data){
 
-           $data->validate([
-               'email' => ['required', 'string', 'email', 'max:255'],
-               'nom' => ['required', 'string', 'max:255'],
-               'cni' => ['required' , 'max:255', 'min:4'],
-           ]);
+
 
         if ( $data->hasFile('file')) {
             $imageName = time() . '.' . $data->file->extension();
@@ -56,12 +52,6 @@ class LocataireRepository
 
     public function updateTenant( $data, $id){
 
-        $data->validate([
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'cni' => ['required', 'int' , 'max:255', 'min:4'],
-
-        ]);
 
         $tenantUp = Locataire::find($id);
 

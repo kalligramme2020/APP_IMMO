@@ -42,9 +42,7 @@ class EtatController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'location' => ['required', 'string', 'max:255'],
-        ]);
+
          $files = $request->file('filenames');
 
         if(!empty($files)){

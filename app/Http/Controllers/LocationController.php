@@ -44,11 +44,6 @@ class LocationController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'bienlouer' => ['required', 'string', 'max:255'],
-            'identifiant' => ['required', 'string', 'max:255'],
-        ]);
-
         $Addlocation = Location::create([
             'locataire_id' => $request['locataire_id'],
             'users_id' => Auth::id(),
