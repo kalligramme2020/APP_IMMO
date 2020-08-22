@@ -10,12 +10,12 @@ class BienRipository
 
     public function addbien($data){
 
-        $data->validate([
-            'typebien' => ['required'],
-            'name' => ['required', 'string', 'max:255'],
-            'addresse' => ['required', 'string'],
-
-        ]);
+//        $data->validate([
+//            'typebien' => ['required'],
+//            'name' => ['required', 'string', 'max:255'],
+//            'addresse' => ['required', 'string'],
+//
+//        ]);
 
         if($data->hasFile('file')) {
             $imageName = time() . '.' . $data->file->extension();
@@ -109,19 +109,19 @@ class BienRipository
         }
 
         $pieceUpdate = Piece::find($id);
-        $pieceUpdate->update([
-            'chambre' => $data['chambre'],
-            'salon'  => $data['salon'],
-            'salle_bain'  => $data['bain'],
-            'cuisine' => $data['cuisine'],
-            'parking' => $data['parking'],
-            'appartement' => $data['appart'],
-            'appart_meuble' => $data['appart_meuble'],
-            'studio' => $data ['studio'],
-            'studio_meuble' => $data['studio_meuble'],
-            'magasin' => $data['magasin'],
-            'terasse' => $data['terasse'],
-        ]);
+//        $pieceUpdate->update([
+//            'chambre' => $data['chambre'],
+//            'salon'  => $data['salon'],
+//            'salle_bain'  => $data['bain'],
+//            'cuisine' => $data['cuisine'],
+//            'parking' => $data['parking'],
+//            'appartement' => $data['appart'],
+//            'appart_meuble' => $data['appart_meuble'],
+//            'studio' => $data ['studio'],
+//            'studio_meuble' => $data['studio_meuble'],
+//            'magasin' => $data['magasin'],
+//            'terasse' => $data['terasse'],
+//        ]);
 
         $bienupdate->pieces()->attach($pieceUpdate);
 

@@ -47,7 +47,7 @@ class LocataireController extends Controller
     public function create()
     {
 
-        return view('pages.new_locataire');
+        return view('Pages.new_locataire');
     }
 
     /**
@@ -99,7 +99,6 @@ class LocataireController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->valid($request);
         $this->Repo->updateTenant($request, $id);
         Flashy::message('locataire modifier avec succeé!');
         return redirect()->route('tenant.create');

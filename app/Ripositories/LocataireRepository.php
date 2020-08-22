@@ -71,8 +71,8 @@ class LocataireRepository
                 'photo' => $imageName,
             ]);
 
-        }else{
-
+        }
+        else{
             $tenantUp->update([
                 'nom' => $data['nom'],
                 'prenom' => $data['prenom'],
