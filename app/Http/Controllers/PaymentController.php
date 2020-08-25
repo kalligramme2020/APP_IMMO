@@ -66,7 +66,8 @@ class PaymentController extends Controller
         ]);
 
         Flashy::message('enregistrer avec succeé!');
-        redirect()->route('payment.index');
+        return  view('Payment.finance');
+
     }
 
     /**

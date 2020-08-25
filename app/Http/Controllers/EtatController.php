@@ -61,7 +61,7 @@ class EtatController extends Controller
             }
         }
 
-        return redirect()->route('Location.showlocation');
+        return back();
 
     }
 
